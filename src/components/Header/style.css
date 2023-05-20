@@ -1,0 +1,48 @@
+.container {
+  background-color: yellowgreen;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+}
+.logo__image {
+  width: 50px;
+  height: 50px;
+}
+.menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.menu__greeting {
+  margin-right: 5px;
+  color: white;
+}
+.menu__login {
+  padding-right: 10px;
+  color: white;
+}
+
+.menu__login-link {
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px dashed white;
+  cursor: pointer;
+}
+
+.logout-button {
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px dashed white;
+  cursor: pointer;
+  padding-right: 5px;
+}
+
+
+.menu__image-picture {
+  width: 20px;
+  height: 20px;
+  border-left: 1px solid white;
+  padding-left: 10px;
+}
+

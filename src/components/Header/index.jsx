@@ -2,58 +2,27 @@ import React, { useState, useEffect } from "react";
 import './style.css';
 import logo from './images/logo.png';
 import shoppingCart from './images/shopping-cart.png';
+import * as api from '../../services/api';
 
-const usersUrl = "https://634e9f834af5fdff3a625f84.mockapi.io/users";
 
 export default function Header() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [userName, setUserName] = useState("");
   const [userInfo, setUserInfo] = useState(null);
 
-  useEffect(() => {
-    checkLoginStatus();
-  }, []);
 
-  function checkLoginStatus() {
+  useEffect(() => {
     const userStatus = localStorage.getItem("userStatus");
     const storedUserName = localStorage.getItem("userName");
 
     if (userStatus === "loggedIn" && storedUserName) {
       setLoggedIn(true);
       setUserName(storedUserName);
-
-      fetch(`${usersUrl}?name=${storedUserName}`)
-        .then((response) => response.json())
-        .then((data) => {
-          const user = data[0];
-          setUserInfo(user);
-        })
-        .catch((error) => console.error(error));
     }
-  }
+  }, []);
 
   function handleLogout() {
-    fetch(`${usersUrl}?name=${userName}`)
-      .then((response) => response.json())
-      .then((data) => {
-        const user = data[0];
-        user.status = false;
-        localStorage.removeItem("userStatus");
-        localStorage.removeItem("userName");
-        fetch(`${usersUrl}/${user.id}`, {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(user),
-        })
-          .then(() => {
-            setLoggedIn(false);
-            setUserName("");
-            setUserInfo(null);
-            window.location.href = "./index.html";
-          })
-          .catch((error) => console.error(error));
-      })
-      .catch((error) => console.error(error));
+    api.handleLogout(userName, setLoggedIn, setUserName, setUserInfo);
   }
 
   return (
@@ -98,3 +67,5 @@ export default function Header() {
     </div>
   );
 }
+
+

@@ -35,7 +35,7 @@ export function handleLogout(userName, setLoggedIn, setUserName, setUserInfo) {
           setLoggedIn(false);
           setUserName("");
           setUserInfo(null);
-          window.location.href = "./index.html";
+          window.location.href = "./login";
         })
         .catch((error) => console.error(error));
     })
@@ -64,7 +64,7 @@ export function handleSignIn(email, password, setError, setLoggedIn, setUserName
             .then(() => {
               setLoggedIn(true);
               setUserName(user.name);
-              window.location.href = "./index.html";
+              window.location.href = "./main";
             })
             .catch((error) => console.error(error));
         }
@@ -105,13 +105,28 @@ export function handleRegistration(
           body: JSON.stringify(user),
         })
           .then(() => {
-            window.location.href = "./index.html";
+            window.location.href = "./main";
           })
           .catch((error) => console.error(error));
       }
     })
     .catch((error) => console.error(error));
 }
+
+export const fetchProducts = async () => {
+  try {
+    const response = await fetch(
+      "https://634e9f834af5fdff3a625f84.mockapi.io/products"
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};
+
+
 
 
 

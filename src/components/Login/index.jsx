@@ -13,7 +13,7 @@ export default function Login() {
   const [error, setError] = useState("");
   const [verify, setVerify] = useState("");
 
-
+  
   useEffect(() => {
     const userStatus = localStorage.getItem("userStatus");
     const storedUserName = localStorage.getItem("userName");
@@ -21,6 +21,7 @@ export default function Login() {
     if (userStatus === "loggedIn" && storedUserName) {
       setLoggedIn(true);
       setUserName(storedUserName);
+
     }
   }, []);
 
@@ -38,6 +39,8 @@ export default function Login() {
     event.preventDefault();
     api.handleRegistration(name, email, password, verify, setError);
   }
+
+
   return (
     <div>
       <div className="containerSing">
@@ -138,18 +141,6 @@ export default function Login() {
           <div className="info__email">Email: {userInfo.email}</div>
         </div>
       )}
-
-      <div className="menu">
-        {loggedIn ? (
-          <button className="logout-button" onClick={handleLogout}>
-            Logout
-          </button>
-        ) : (
-          <a href="./sing.html" className="menu__login">
-            Log in
-          </a>
-        )}
-      </div>
     </div>
   );
 

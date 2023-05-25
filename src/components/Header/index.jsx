@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
-import './style.css';
-import logo from './images/logo.png';
-import shoppingCart from './images/shopping-cart.png';
-import * as api from '../../services/api';
-
+import "./style.css";
+import logo from "./images/logo.png";
+import shoppingCart from "./images/shopping-cart.png";
+import * as api from "../../services/api";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [userName, setUserName] = useState("");
   const [userInfo, setUserInfo] = useState(null);
-
 
   useEffect(() => {
     const userStatus = localStorage.getItem("userStatus");
@@ -30,9 +29,9 @@ export default function Header() {
       <header className="header">
         <div className="container">
           <div className="logo">
-            <a className="logo__link" href="./index.html">
+            <Link className="logo__link" to="/main">
               <img className="logo__image" src={logo} alt="" />
-            </a>
+            </Link>
           </div>
 
           <div className="menu">
@@ -47,7 +46,9 @@ export default function Header() {
               </>
             ) : (
               <div className="menu__login">
-                <a className="menu__login-link" href="">Hi, Log in</a>
+                <Link className="menu__login-link" to="/login">
+                  Hi, Log in
+                </Link>
               </div>
             )}
 
@@ -67,5 +68,3 @@ export default function Header() {
     </div>
   );
 }
-
-

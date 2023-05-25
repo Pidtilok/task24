@@ -1,0 +1,117 @@
+.container {
+  background-color: yellowgreen;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+}
+.logo__image {
+  width: 50px;
+  height: 50px;
+}
+.menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.menu__greeting {
+  margin-right: 5px;
+  color: white;
+}
+.menu__login {
+  padding-right: 10px;
+  color: white;
+}
+
+.menu__login-link {
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px dashed white;
+  cursor: pointer;
+}
+
+.logout-button {
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px dashed white;
+  cursor: pointer;
+  padding-right: 5px;
+}
+
+.memu__image-picture {
+  width: 20px;
+  height: 20px;
+  border-left: 1px solid white;
+  padding-left: 10px;
+}
+
+.category__product-image {
+  width: 70px;
+  height: 70px;
+}
+
+#categoriesContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+  padding: 20px;
+}
+
+.category__container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.category__product {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  padding: 10px;
+  background-color: white;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-evenly;
+
+  font-size: 14px;
+}
+
+.category__product-image {
+  transform: translate(70px);
+}
+
+.category__product-shopCar {
+  background-color: red;
+  width: 15px;
+  height: 15px;
+  padding: 3px 9px;
+  transform: translate(160px, 30px);
+  cursor: pointer;
+}
+
+.category__product-price-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.category__product-sale-badge {
+  background-color: green;
+  color: white;
+  padding: 3px;
+  font-size: 10px;
+}
+
+.product__cart-in {
+  background-color: green;
+}

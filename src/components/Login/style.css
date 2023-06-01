@@ -43,15 +43,6 @@ button {
   border-radius: 2px;
 }
 
-.cart__count {
-  background-color: white;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  transform: translate(-5px, -12px);
-  color: green;
-  padding-left: 6px;
-}
 
 a {
   color: white;
